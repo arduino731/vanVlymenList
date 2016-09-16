@@ -3,6 +3,7 @@ var router  = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
 
+require('../config/passport')(passport);
 //root route
 router.get("/", function(req, res){
     res.render("landing");
@@ -40,6 +41,15 @@ router.post("/login", passport.authenticate("local",
     }), function(req, res){
 });
 
+// route for facebook authentication and login
+router.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+	// handle the callback after facebook has authenticated the user
+router.get('/auth/facebook/callback',
+	passport.authenticate('facebook', {
+	successRedirect : '/campgrounds',
+	failureRedirect : '/login'
+}));
 // logout route
 router.get("/logout", function(req, res){
    req.logout();
