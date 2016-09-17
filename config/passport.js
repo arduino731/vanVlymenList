@@ -46,12 +46,10 @@ module.exports = function(passport) {
     },
 
     // facebook will send back the token and profile
-    function(req, token, refreshToken, profile, done) {
+    function(accessToken, refreshToken, profile, done) {
 
         // asynchronous
         process.nextTick(function() {
-
-            if(!req.user){
             // find the user in the database based on their facebook id
                 User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
 
@@ -62,8 +60,9 @@ module.exports = function(passport) {
 
                 // if the user is found, then log them in
                 if (user) {
-                    if(!user.facebook.token){
-                        user.facebook.token = token;
+                    console.log("HERE" + user);
+                    if(user.facebook.token){
+                        user.facebook.token = accessToken;
                         user.facebook.name = profile.displayName;
                         user.facebook.email = profile.emails[0].value;
                         
@@ -77,11 +76,12 @@ module.exports = function(passport) {
                     // return done(null, user); // user found, return that user
                 } else {
                     // if there is no user found with that facebook id, create them
+                    console.log("new token is " + accessToken);
                     var newUser            = new User();
-
+                    
                     // set all of the facebook information in our user model
                     newUser.facebook.id    = profile.id; // set the users facebook id                   
-                    newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
+                    newUser.facebook.token = accessToken; // we will save the token that facebook provides to the user                    
                     newUser.facebook.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
                     newUser.facebook.name = profile.displayName;
                     newUser.facebook.picture = profile.photos ? profile.photos[0].value : 'http://www.fivepointstance.com/wp-content/uploads/2013/11/Be-Weird.jpg';
@@ -97,7 +97,6 @@ module.exports = function(passport) {
                 }
 
             });
-            }
         });
 
     }));
