@@ -18,12 +18,16 @@
                         <li><a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Login</a></li>
                         <li><a href="/register">Sign Up</a></li>
                         <li><a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a></li>
-                    <% } else { %>
+                    <% } else if(currentUser){ %>
+            
                         <li><a href="#">Signed In As <%= currentUser.username %></a></li>
                         <li><a href="/logout">Logout</a></li>
-                        <img src= "<%= currentUser.facebook.picture %> " style="width:100px; height:100px;" >
-                        <li><a href="#">Signed In As <%= currentUser.facebook.name %></a></li>
                         
+                        <% if(currentUser.facebook.picture) { %> 
+                            <img src= "<%= currentUser.facebook.picture %> " style="width:100px; height:100px;" > 
+                            <li><a href="#">Signed In As <%= currentUser.facebook.name %></a></li>
+                        <% } %>
+
                     <% } %>
                 </ul>
             </div>

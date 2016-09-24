@@ -14,13 +14,6 @@ var configAuth = require('./auth');
 // expose this function to our app using module.exports
 module.exports = function(passport) {
 
-	// =========================================================================
-    // passport session setup ==================================================
-    // =========================================================================
-    // required for persistent login sessions
-    // passport needs ability to serialize and unserialize users out of session
-
-    // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
@@ -52,12 +45,9 @@ module.exports = function(passport) {
         process.nextTick(function() {
             // find the user in the database based on their facebook id
                 User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
-
-                // if there is an error, stop everything and return that
-                // ie an error connecting to the database
-                if (err)
+                if (err){
                     return done(err);
-
+                }
                 // if the user is found, then log them in
                 if (user) {
                     console.log("HERE" + user);
@@ -78,7 +68,6 @@ module.exports = function(passport) {
                     // if there is no user found with that facebook id, create them
                     console.log("new token is " + accessToken);
                     var newUser            = new User();
-                    
                     // set all of the facebook information in our user model
                     newUser.facebook.id    = profile.id; // set the users facebook id                   
                     newUser.facebook.token = accessToken; // we will save the token that facebook provides to the user                    
