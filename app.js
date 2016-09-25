@@ -28,7 +28,7 @@ app.use(methodOverride("_method"));
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret: "Once again Rusty wins cutest dog!",
+    secret: "vanVlymensList",
     resave: false,
     saveUninitialized: false
 }));

@@ -13,3 +13,30 @@
 #delete-form {
     display: inline;
 }
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    
+    .authFacebook{
+        display:none;
+    }
+    .fa-list-xs{
+        display:none;
+    }
+    .login-form{
+        background: red;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+/*@media (min-width: @screen-md-min) { }*/
+
+/* Large devices (large desktops, 1200px and up) */
+/*@media (min-width: @screen-lg-min) { }*/
