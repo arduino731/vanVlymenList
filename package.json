@@ -4,7 +4,8 @@
   "description": "YelpCamp v1",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node app.js"
   },
   "author": "Brian van Vlymen",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "mongoose": "^4.1.12",
     "nodemon": "^1.10.2",
     "passport": "^0.3.0",
+    "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^3.1.0"
   }
