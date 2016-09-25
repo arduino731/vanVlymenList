@@ -18,7 +18,8 @@ var commentRoutes    = require("./routes/comments"),
 var configDB = require('./config/database.js');
 
 // configuration ===============================================================
-mongoose.connect(configDB.localhost); // connect to our database
+// mongoose.connect(configDB.localhost); // connect to our database
+mongoose.connect(configDB.url);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
