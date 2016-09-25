@@ -5,9 +5,23 @@ var User = require("../models/user");
 
 require('../config/passport')(passport);
 //root route
+
 router.get("/", function(req, res){
-    res.render("landing");
+    res.render("home");
 });
+
+router.get("/us", function(req, res){
+    res.render("us");
+});
+
+router.get("/canada", function(req, res){
+    res.render("canada");
+});
+
+router.get("/europe", function(req, res){
+    res.render("europe");
+});
+
 
 // show register form
 router.get("/register", function(req, res){
