@@ -16,10 +16,11 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index")
     
 var configDB = require('./config/database.js');
-
+console.log(process.env.DATABASEURL);
 // configuration ===============================================================
 // mongoose.connect(configDB.localhost); // connect to our database
-mongoose.connect(configDB.url);
+// mongoose.connect(configDB.url);
+mongoose.connect(process.env.DATABASEURL);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
