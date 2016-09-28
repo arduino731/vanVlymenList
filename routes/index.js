@@ -11,7 +11,7 @@ router.get("/", function(req, res){
 });
 
 router.get("/us", function(req, res){
-    res.render("us");
+    res.render("us/index");
 });
 
 router.get("/canada", function(req, res){
