@@ -10,16 +10,16 @@ router.get("/", function(req, res){
     res.render("home");
 });
 
-router.get("/us", function(req, res){
-    res.render("us/index");
-});
+// router.get("/us", function(req, res){
+//     res.render("world/us/index");
+// });
 
 router.get("/canada", function(req, res){
-    res.render("canada");
+    res.render("world/canada/index");
 });
 
 router.get("/europe", function(req, res){
-    res.render("europe");
+    res.render("world/europe/index");
 });
 
 

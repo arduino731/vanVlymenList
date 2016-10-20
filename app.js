@@ -8,20 +8,22 @@ var express     = require("express"),
     Campground  = require("./models/campground"),
     Comment     = require("./models/comment"),
     Tag         = require("./models/tag"),
+    Us          = require("./models/us"),
     User        = require("./models/user"),
     seedDB      = require("./seeds")
     
 //requiring routes
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
-    indexRoutes      = require("./routes/index")
+    indexRoutes      = require("./routes/index"),
+    usRoutes         = require("./routes/us")
     
 var configDB = require('./config/database.js');
 console.log(process.env.DATABASEURL);
 // configuration ===============================================================
-// mongoose.connect(configDB.localhost); // connect to our database
+mongoose.connect(configDB.localhost); // connect to our database
 // mongoose.connect(configDB.url);
-mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect(process.env.DATABASEURL);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -49,6 +51,7 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/us", usRoutes);
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
