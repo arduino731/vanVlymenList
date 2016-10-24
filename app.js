@@ -9,6 +9,8 @@ var express     = require("express"),
     Comment     = require("./models/comment"),
     // Tag         = require("./models/tag"), // not need this
     // Us          = require("./models/us"), // not need this
+    // USjson      = require("./models/USjson"),
+    // USjson      = require("./models/seeddb2"),
     User        = require("./models/user"),
     seedDB      = require("./seeds")
     
@@ -19,7 +21,7 @@ var commentRoutes    = require("./routes/comments"),
     usRoutes         = require("./routes/us")
     
 var configDB = require('./config/database.js');
-console.log(process.env.DATABASEURL);
+// console.log(process.env.DATABASEURL); // looking at the note.txt
 // configuration ===============================================================
 mongoose.connect(configDB.localhost); // connect to our database
 // mongoose.connect(configDB.url);

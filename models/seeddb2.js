@@ -1,6 +1,5 @@
-var mongoose = require("mongoose");
-var Campground = require("./models/campground");
-var Comment   = require("./models/comment");
+var mongoose    = require("mongoose");
+var USjson      = require("./USjson");
 
 var data = [
     {
@@ -20,40 +19,27 @@ var data = [
     }
 ]
 
-
-function seedDB(){
-   //Remove all campgrounds
-   Campground.remove({}, function(err){
+// console.log(data);
+function seeddb2(){
+    USjson.remove({}, function(err){
         if(err){
             console.log(err);
+        }else{
+            console.log("removed name!");
         }
-        console.log("removed campgrounds!");
-         //add a few campgrounds
         data.forEach(function(seed){
-            Campground.create(seed, function(err, campground){
+            USjson.create(seed, function(err, nameUS){
                 if(err){
                     console.log(err)
                 } else {
-                    console.log("added a campground");
-                    //create a comment
-                    Comment.create(
-                        {
-                            text: "This place is great, but I wish there was internet",
-                            author: "Homer"
-                        }, function(err, comment){
-                            if(err){
-                                console.log(err);
-                            } else {
-                                campground.comments.push(comment);
-                                campground.save();
-                                console.log("Created new comment");
-                            }
-                        });
+                    console.log("added a state");
+                    console.log(nameUS);
                 }
-            });
-        });
-    }); 
-    //add a few comments
+            })
+        })
+    })    
 }
 
-module.exports = seedDB;
+seeddb2();
+
+module.exports = seeddb2;
