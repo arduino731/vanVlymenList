@@ -2,20 +2,19 @@ var express = require("express");
 var router  = express.Router();
 var US = require("../models/us");
 var middleware = require("../middleware");
-var USjson = require("../models/USjson");
+var USjson = require("../models/state");
 
-// var data = require("../models/seeddb2");
-// var USjson = { "name": "ALABAMA", "abbreviation": "AL"};
+var data = require("../models/seeddb2");
 
 //INDEX - show all US
 router.get("/", function(req, res){
     // Get all US from DB
     US.find({}, function(err, showAllUs){
-       if(err){
-           console.log(err);
-       } else {
+      if(err){
+          console.log(err);
+      } else {
           res.render("world/us/index",{allUs:showAllUs});
-       }
+      }
     });
 });
 
@@ -50,7 +49,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
    res.render("world/us/new"); 
 });
 
-router.get("/1", function(req, res){
+router.get("/2", function(req, res){
     // find the US with provided JSON 
     USjson.find({}, function(err, foundAState){
         if(err){

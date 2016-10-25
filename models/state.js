@@ -1,10 +1,20 @@
 var mongoose = require("mongoose");
 
-var USjsonSchema = new mongoose.Schema({
-        name: String
-
+var StatesSchema = new mongoose.Schema({
+        state:          String,
+        abbreviation:   String,
+        capital:        String,
+        image: {
+            image_flag: String,
+            image_state:String,
+            location: String,
+            credit: {
+                author: String,
+                url: String
+            }
+        }
 });
-module.exports = mongoose.model("USjson", USjsonSchema);
+module.exports = mongoose.model("State", StatesSchema);
 
 // http://adamkinney.com/blog/2012/04/25/list-of-us-states-in-javascript-object-notation/
 
