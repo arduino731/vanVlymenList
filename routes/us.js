@@ -51,7 +51,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 
 router.get("/2", function(req, res){
     // find the US with provided JSON 
-    USjson.find({}, function(err, foundAState){
+    USjson.find().populate('usjsons').sort( { state: 1 } ).exec(function(err, foundAState){
         if(err){
             console.log(err)
         }else{

@@ -737,7 +737,7 @@ var data =
   }
 ]
 
-console.log(data);
+// console.log(data);
 function seeddb2(){
     USjson.remove({}, function(err){
         if(err){
@@ -751,7 +751,7 @@ function seeddb2(){
                     console.log(err)
                 } else {
                     console.log("added a state");
-                    console.log(nameUS);
+                    // console.log(nameUS);
                 }
             })
         })
