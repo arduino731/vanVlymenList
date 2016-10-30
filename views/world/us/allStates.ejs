@@ -1,11 +1,12 @@
-show a state here
+<h1 class="text-center">show all states list here</h1>
 
 <% USjsons.forEach(function(usjson){ %>
     <div style="background-color: yellow;">
         <p><%= usjson.state %> </p>
         <p><%= usjson.abbreviation %> </p>
         <img style="height:150px;width:150px;" src=" <%= usjson.image.image_flag %> "> 
-        <img style="height:150px;width:150px;" src=" <%= usjson.image.image_state %> "> 
+        <img style="height:150px;width:150px;" src=" <%= usjson.image.image_state %> ">
+        <a href="/us/<%= usjson._id %>" class="btn btn-primary">More Info</a>
         <p>credit:  <%= usjson.image.credit.author %></p>
     </div>
 <% }); %>

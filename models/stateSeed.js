@@ -1,5 +1,5 @@
 var mongoose    = require("mongoose");
-var USjson      = require("./state");
+var states      = require("./state");
 
 // var data = [
 //     {
@@ -739,14 +739,14 @@ var data =
 
 // console.log(data);
 function seeddb2(){
-    USjson.remove({}, function(err){
+    states.remove({}, function(err){
         if(err){
             console.log(err);
         }else{
             console.log("removed name!");
         }
         data.forEach(function(seed){
-            USjson.create(seed, function(err, nameUS){
+            states.create(seed, function(err, nameUS){
                 if(err){
                     console.log(err)
                 } else {
