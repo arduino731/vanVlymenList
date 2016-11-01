@@ -1,10 +1,18 @@
 <% include ../../partials/header %>
 <div style="color:white;">
     <h1>shows more info about one state</h1>
-
-
-
-    <h1><%= aState.state %></h1>
+    
+    <h1><%= state.state %></h1>
+    
 </div>
-    <a class="btn btn-primary btn-large" href="/us/<%= aState._id %>/new">Add New Post</a>
 
+    <a class="btn btn-primary btn-large" href="/us/<%= state._id %>/newposts/new">Add New Post</a>
+
+<p class="text-center" style="color:white">need add each city post here</p>
+
+<div class="text-center">
+<% state.posts.forEach(function(comment){ %>
+
+    <%= comment.price %>
+<% }) %>
+</div>

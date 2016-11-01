@@ -1,11 +1,11 @@
 var mongoose = require("mongoose");
 
-var usSchema = new mongoose.Schema({
-    state: String,
+var PostSchema = new mongoose.Schema({
+    city: String,
     image: String,
     date: { type: Date, default: Date.now},
     price: Number,
-    // desc: String,
+    desc: String,
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -15,4 +15,4 @@ var usSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("Us", usSchema);
+module.exports = mongoose.model("Post", PostSchema);

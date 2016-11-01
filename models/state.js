@@ -12,7 +12,13 @@ var StatesSchema = new mongoose.Schema({
                 author: String,
                 url: String
             }
-        }
+        },
+        posts: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Post"
+            }
+        ]
 });
 module.exports = mongoose.model("State", StatesSchema);
 

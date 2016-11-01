@@ -18,7 +18,8 @@ var express     = require("express"),
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index"),
-    usRoutes         = require("./routes/us")
+    usRoutes         = require("./routes/us"),
+    newpostsRoutes   = require('./routes/newposts')
     
 var configDB = require('./config/database.js');
 // console.log(process.env.DATABASEURL); // looking at the note.txt
@@ -53,7 +54,9 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+
 app.use("/us", usRoutes);
+app.use("/us/:id/newposts", newpostsRoutes);
 
 
 app.listen(process.env.PORT, process.env.IP, function(){

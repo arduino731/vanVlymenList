@@ -1,0 +1,32 @@
+<% include ../../partials/header %>
+<div class="container">
+<h1 class="text-center">new post for a city of the state</h1>
+    <div class="row">
+        <form action="/us/<%= state._id %>/newposts" method="POST">
+            <div class="col-md-6">
+                <div class="form-group"> 
+                    <label>Select an Image:</label>
+                        <input class="form-control" type="text" placeholder="URL IMAGE"      name="newPost[image]"><br><br>
+                    <label>Select an City:</label>
+                        <input class="form-control" type="text" placeholder="city" name="newPost[city]"><br><br>
+                    <label>Price:</label>
+                        <input class="form-control" type="number" placeholder="$" min=0 name="newPost[price]">
+                    <label>Description</label>
+                        <div class="field">
+                            <label>Description</label>
+                            <textarea  rows="4" cols="50" name="newPost[desc]"></textarea>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </div>
+            <div class="col-md-6" style="background-color:yellow;">
+                <p class="text-center"> something put in there on the sidebar </p>
+            </div>
+        </form>
+    </div>
+    
+<a href="/us">Go Back</a>
+</div>
+
+
+<% include ../../partials/footer %>
