@@ -1,18 +1,41 @@
 <% include ../../partials/header %>
 <div style="color:white;">
-    <h1>shows more info about one state</h1>
+<h1>shows more info about one state</h1>
     
-    <h1><%= state.state %></h1>
+    <div style="background-image: url('<%- state.image.image_state %>'); width: 100%;height: 300px;">
+        <div class="text-center">
+            <h1><%= state.state %></h1>
+            <div>
+                <img src=" <%=state.image.image_flag %>" style="width:100px; height:100px;">
+            </div>
+            <a class="btn btn-primary btn-large" style="margin-top: 15px" href="/us/<%= state._id %>/newposts">Add New Post</a>
+        
+        </div>
+    
+        <p class="pull-right" style="background:yellow; position:relative; right:22px; bottom:22px;"><bold>Location: </bold><%= state.image.location %></p>
+    </div>
     
 </div>
 
-    <a class="btn btn-primary btn-large" href="/us/<%= state._id %>/newposts/new">Add New Post</a>
+    <p class="text-center">
+    </p>
+    
+<p style="color:red">need add each city post here</p>
 
-<p class="text-center" style="color:white">need add each city post here</p>
-
-<div class="text-center">
-<% state.posts.forEach(function(comment){ %>
-
-    <%= comment.price %>
-<% }) %>
+<div class="container">
+    <div class="row text-center">
+    <% state.posts.forEach(function(comment){ %>
+    
+            <div class="col-md-3 col-sm-6">
+              <h2>City: <%= comment.city %> </h2>
+              <p><bold>BY: </bold> <%= comment.author.username %></p>
+              <img class="img-responsive" src="<%= comment.image %>">
+              <p><%= comment.price %></p>
+              <p><a class="btn btn-primary" href="/us/<%= state._id %>/newposts/<%= comment._id %> " role="button">More Info &raquo;</a></p>
+            </div>
+    
+    <% }) %>
+    </div>
 </div>
+
+<% include ../../partials/footer %>

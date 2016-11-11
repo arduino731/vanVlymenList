@@ -57,6 +57,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.use("/us", usRoutes);
 app.use("/us/:id/newposts", newpostsRoutes);
+// app.use("/us/:id/newposts/:newpost", newcommentRoutes);
 
 
 app.listen(process.env.PORT, process.env.IP, function(){

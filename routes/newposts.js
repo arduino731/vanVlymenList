@@ -5,9 +5,9 @@ var NewPost = require("../models/post");
 var middleware = require("../middleware");
 
 //Comments New
-router.get("/new", function(req, res){
+router.get("/", middleware.isLoggedIn, function(req, res){
     // find state by id
-    console.log(req.params.id);
+    // console.log(req.params.id);
     State.findById(req.params.id, function(err, state){
         if(err){
             console.log(err);
@@ -18,29 +18,40 @@ router.get("/new", function(req, res){
 });
 
 //Posts Create
-router.post("/", function(req, res){
+router.post("/", middleware.isLoggedIn, function(req, res){
   //lookup state using ID
   State.findById(req.params.id, function(err, state){
       if(err){
           console.log(err);
           res.redirect("/us");
       } else {
-        NewPost.create(req.body.newPost, function(err, comment){
+        NewPost.create(req.body.newPost, function(err, newpost){
           if(err){
               console.log(err);
           } else {
-              //add username and id to comment
-            //   comment.author.id = req.user._id;
-            //   comment.author.username = req.user.username;
-              //save comment
-            //   comment.save();
-              state.posts.push(comment);
+              //add username and id to newpost
+              newpost.author.id = req.user._id;
+              newpost.author.username = req.user.username;
+              //save newpost
+              newpost.save();
+              state.posts.push(newpost);
               state.save();
-              console.log(comment);
+              // console.log(newpost);
               res.redirect('/us/' + state._id);
           }
         });
       }
+  });
+});
+
+router.get("/:newpost_id", function(req, res){
+  NewPost.findById(req.params.newpost_id).populate("posts").exec(function(err, foundPost){
+    if(err){
+      res.redirect("back");
+    }else{
+      res.render("world/posts/show" , {post: foundPost});
+      console.log(foundPost);
+    }
   });
 });
 
