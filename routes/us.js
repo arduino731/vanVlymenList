@@ -3,7 +3,7 @@ var router  = express.Router();
 var State = require("../models/state");
 var middleware = require("../middleware");
 
-// var data = require("../models/stateSeed"); // this is created new _id
+var data = require("../models/stateSeed"); // this is created new _id
 
 var newCity = require("../models/post");
 
