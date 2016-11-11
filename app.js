@@ -24,8 +24,8 @@ var commentRoutes    = require("./routes/comments"),
 var configDB = require('./config/database.js');
 // console.log(process.env.DATABASEURL); // looking at the note.txt
 // configuration ===============================================================
-mongoose.connect(configDB.localhost); // connect to our database
-// mongoose.connect(configDB.url);
+// mongoose.connect(configDB.localhost); // connect to our database
+mongoose.connect(configDB.url);
 // mongoose.connect(process.env.DATABASEURL);
 
 app.use(bodyParser.urlencoded({extended: true}));
