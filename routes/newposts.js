@@ -36,7 +36,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
               newpost.save();
               state.posts.push(newpost);
               state.save();
+              console.log("push here");
               console.log(newpost);
+              console.log(newpost.author.username);
+              
               res.redirect('/us/' + state._id);
           }
         });
