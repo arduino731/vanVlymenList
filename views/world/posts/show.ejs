@@ -2,10 +2,11 @@
 
 <div class="text-center">
     <h1>Hello show here for _id: city!</h1>
-    <h1><%= post.city %></h1>
+    <h1>city: <%= post.city %></h1>
     <img src="<%= post.image %>" style="width:150px; height:100px;">
     <p>price:<%= post.price %></p>
     <p>description: <%= post.desc %></p>
+    <p><bold>BY: </bold><%=post.author.username %></p>
 </div>
 
 <div class="well">

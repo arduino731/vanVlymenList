@@ -1,2 +1,4 @@
 http://bootsnipp.com/snippets/featured/toggle-navbar
 
+if you want to use process.env.DATABASEURL then you must to $ export DATABASEURL=mongodb://vanvlymenlist:vanvlymenlist@ds041556.mlab.com:41556/vanvlymenlist
+in the terminal 

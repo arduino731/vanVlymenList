@@ -6,15 +6,15 @@ var middleware = require("../middleware");
 
 //Comments New
 router.get("/", middleware.isLoggedIn, function(req, res){
-    // find state by id
-    // console.log(req.params.id);
-    State.findById(req.params.id, function(err, state){
-        if(err){
-            console.log(err);
-        } else {
-             res.render("world/posts/newPost", {state: state});
-        }
-    })
+  // find state by id
+  // console.log(req.params.id);
+  State.findById(req.params.id, function(err, state){
+      if(err){
+          console.log(err);
+      } else {
+           res.render("world/posts/newPost", {state: state});
+      }
+  })
 });
 
 //Posts Create
@@ -36,7 +36,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
               newpost.save();
               state.posts.push(newpost);
               state.save();
-              // console.log(newpost);
+              console.log(newpost);
               res.redirect('/us/' + state._id);
           }
         });
@@ -50,7 +50,7 @@ router.get("/:newpost_id", function(req, res){
       res.redirect("back");
     }else{
       res.render("world/posts/show" , {post: foundPost});
-      console.log(foundPost);
+      // console.log(foundPost);
     }
   });
 });

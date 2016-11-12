@@ -7,11 +7,8 @@ var express     = require("express"),
     methodOverride = require("method-override"),
     Campground  = require("./models/campground"),
     Comment     = require("./models/comment"),
-    // Tag         = require("./models/tag"), // not need this
-    // Us          = require("./models/us"), // not need this
-    // USjson      = require("./models/USjson"),
-    // USjson      = require("./models/seeddb2"),
     User        = require("./models/user"),
+    
     seedDB      = require("./seeds")
     
 //requiring routes
@@ -21,11 +18,11 @@ var commentRoutes    = require("./routes/comments"),
     usRoutes         = require("./routes/us"),
     newpostsRoutes   = require('./routes/newposts')
     
-var configDB = require('./config/database.js');
-// console.log(process.env.DATABASEURL); // looking at the note.txt
 // configuration ===============================================================
-// mongoose.connect(configDB.localhost); // connect to our database
-mongoose.connect(configDB.url);
+var configDB = require('./config/database.js');
+mongoose.connect(configDB.localhost);    // connect to our local database
+// mongoose.connect(configDB.url);          // connect to mlab server db
+// console.log(process.env.DATABASEURL);    // look at the note.txt
 // mongoose.connect(process.env.DATABASEURL);
 
 app.use(bodyParser.urlencoded({extended: true}));

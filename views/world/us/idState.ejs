@@ -28,7 +28,8 @@
     
             <div class="col-md-3 col-sm-6">
               <h2>City: <%= comment.city %> </h2>
-              <p><bold>BY: </bold> <%= comment.author.username %></p>
+              <p><bold>BY: </bold> 
+              <%= comment.author.username %></p>
               <img class="img-responsive" src="<%= comment.image %>">
               <p><%= comment.price %></p>
               <p><a class="btn btn-primary" href="/us/<%= state._id %>/newposts/<%= comment._id %> " role="button">More Info &raquo;</a></p>
