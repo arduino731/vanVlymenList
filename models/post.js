@@ -11,7 +11,14 @@ var PostSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
-        username: String
+        username: String,
+        Localpicture: String,
+        // Facebook
+        link: String,
+        picture: String,
+        name: String,
+        email: String
+        // Twitter ???
     }
 });
 

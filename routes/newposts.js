@@ -32,13 +32,21 @@ router.post("/", middleware.isLoggedIn, function(req, res){
               //add username and id to newpost
               newpost.author.id = req.user._id;
               newpost.author.username = req.user.username;
+              newpost.author.Localpicture = req.user.Localpicture;
+              //Facebook
+              newpost.author.link = req.user.facebook.link;
+              newpost.author.picture = req.user.facebook.picture;
+              newpost.author.name = req.user.facebook.name;
+              newpost.author.email = req.user.facebook.email;
+              //Twitter??
               //save newpost
               newpost.save();
               state.posts.push(newpost);
               state.save();
-              console.log("push here");
+              // console.log("push here");
               console.log(newpost);
-              console.log(newpost.author.username);
+              // console.log(newpost.author.username);
+              // console.log(newpost.author.name); 
               
               res.redirect('/us/' + state._id);
           }

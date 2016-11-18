@@ -30,6 +30,13 @@
               <h2>City: <%= comment.city %> </h2>
               <p><bold>BY: </bold> 
               <%= comment.author.username %></p>
+              <%= comment.author.name %></p>
+              <% if(comment.author.picture){ %>
+                  <img src="<%= comment.author.picture %>" style="width:50px; height:50px;">
+              <% } %>
+              <% if(comment.author.Localpicture){ %>
+                  <img src="<%= comment.author.Localpicture %>" style="width:50px; height:50px;">
+              <% } %>
               <img class="img-responsive" src="<%= comment.image %>">
               <p><%= comment.price %></p>
               <p><a class="btn btn-primary" href="/us/<%= state._id %>/newposts/<%= comment._id %> " role="button">More Info &raquo;</a></p>

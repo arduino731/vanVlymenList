@@ -30,7 +30,8 @@ router.get("/register", function(req, res){
 
 //handle sign up logic
 router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
+    var Localpicture = "http://www.fivepointstance.com/wp-content/uploads/2013/11/Be-Weird.jpg";
+    var newUser = new User({username: req.body.username, Localpicture: Localpicture});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);

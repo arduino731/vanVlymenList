@@ -32,7 +32,7 @@ router.get("/:id", function(req, res){
     });
 });
 
-router.post("/:id", function(req, res){
+router.post("/:id", middleware.isLoggedIn,function(req, res){
     // get data from form and add to us array
     var imageValue = req.body.image;
     var priceValue = req.body.price;
@@ -40,8 +40,12 @@ router.post("/:id", function(req, res){
     var city = req.body.city;
     var authorValue = {
         id:req.body._id,
-        username:req.body.username
+        // username:req.body.username,
+        name:req.body.name,
+        name2: req.body.facebook.name
     }
+    console.log("author: authorValue");
+    console.log(authorValue);
     var newUS = {image: imageValue, price:priceValue, description:desc, city: city, author:authorValue}
     //  Create a new US and save to DB 
     newCity.create(newUS, function(err, newlyCreated){

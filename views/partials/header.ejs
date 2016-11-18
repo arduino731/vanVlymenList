@@ -66,6 +66,7 @@
                             
                             <li><a href="#">Signed In As <%= currentUser.username %></a></li>
                             <li><a href="/logout">Logout</a></li>
+                            <img src= "<%= currentUser.Localpicture %> " style="width:100px; height:100px;" > 
                             
                             <% } %>
                             <% if(currentUser.facebook.picture) { %> 
