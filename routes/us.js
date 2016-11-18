@@ -22,12 +22,16 @@ router.get("/", function(req, res){
 
 //SHOW - shows more info about one state
 router.get("/:id", function(req, res){
-    State.findById(req.params.id).populate("posts").exec(function(err, foundidState){
+    State.findById(req.params.id).populate({ 
+        path: "posts", 
+        options: { sort: { date : -1 }} 
+        
+    }).exec(function(err, foundidState){
         if(err){
             console.log(err)
         } else {
-            // console.log(foundidState)
-            res.render("world/us/idState", {state: foundidState});
+            // console.log(foundidState);
+            res.render("world/us/idState", {state: foundidState});    
         }
     });
 });
