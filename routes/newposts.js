@@ -4,7 +4,7 @@ var State = require("../models/state");
 var NewPost = require("../models/post");
 var middleware = require("../middleware");
 
-//Comments New
+//NewPost for each state (model: posts)
 router.get("/", middleware.isLoggedIn, function(req, res){
   // find state by id
   // console.log(req.params.id);
@@ -56,15 +56,30 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 });
 
 router.get("/:newpost_id", function(req, res){
-  NewPost.findById(req.params.newpost_id).populate("posts").exec(function(err, foundPost){
+  State.findById(req.params.id, function(err, state){
     if(err){
-      res.redirect("back");
+      res.redirect('back');
     }else{
-      res.render("world/posts/show" , {post: foundPost});
-      // console.log(foundPost);
+      NewPost.findById(req.params.newpost_id).populate('posts').exec(function(err, foundPost){
+        res.render("world/posts/show" , {state:state, post: foundPost});
+        // console.log(state);
+        // console.log(foundPost);
+      })
     }
-  });
+  })
 });
+
+router.get('/:newpost_id/comments/new', function(req, res){
+  State.findById(req.params.id, function(err, state){
+    if(err){
+      res.redirect('back');
+    }else{
+      res.render("world/posts/newComment", {state: state});
+      // console.log(state);
+    }
+  })
+})
+
 
 // // COMMENT EDIT ROUTE
 // router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
