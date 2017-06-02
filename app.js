@@ -20,8 +20,8 @@ var commentRoutes    = require("./routes/comments"),
     // 
 // configuration ===============================================================
 var configDB = require('./config/database.js');
-mongoose.connect(configDB.localhost);    // connect to our local database
-// mongoose.connect(configDB.url);          // connect to mlab server db
+// mongoose.connect(configDB.localhost);    // connect to our local database
+mongoose.connect(configDB.url);          // connect to mlab server db
 // console.log(process.env.DATABASEURL);    // look at the note.txt
 // mongoose.connect(process.env.DATABASEURL);
 

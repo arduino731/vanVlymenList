@@ -7,8 +7,8 @@ module.exports = {
 	'facebookAuth' : {
 		'clientID' 		: '1560663210917790', // your App ID
 		'clientSecret' 	: '49edb40415ac258c19de42e391d24e21', // your App Secret
-		// 'callbackURL' 	: 'https://vanvlymenlist.herokuapp.com/auth/facebook/callback'
-		'callbackURL' 	: 'https://web-developer-bootstrap-ironheartbj18.c9users.io/auth/facebook/callback'
+		'callbackURL' 	: 'https://vanvlymenlist.herokuapp.com/auth/facebook/callback'
+		// 'callbackURL' 	: 'https://web-developer-bootstrap-ironheartbj18.c9users.io/auth/facebook/callback'
 	},
 	
 	// https://apps.twitter.com/ (Twitter developer)
