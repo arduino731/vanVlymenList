@@ -30,7 +30,7 @@ router.get("/:id", function(req, res){
         if(err){
             console.log(err)
         } else {
-            console.log(foundidState);
+            // console.log(foundidState);
             res.render("world/us/idState", {state: foundidState});    
         }
     });

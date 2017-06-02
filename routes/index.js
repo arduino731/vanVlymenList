@@ -62,13 +62,13 @@ router.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'
 	// handle the callback after facebook has authenticated the user
 router.get('/auth/facebook/callback',
 	passport.authenticate('facebook', {
-	successRedirect : '/campgrounds',
+	successRedirect : '/',
 	failureRedirect : '/login'
 }));
 // logout route
 router.get("/logout", function(req, res){
    req.logout();
-   res.redirect("/campgrounds");
+   res.redirect("/");
 });
 
 //middleware

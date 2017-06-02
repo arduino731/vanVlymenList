@@ -17,7 +17,7 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index"),
     usRoutes         = require("./routes/us"),
     newpostsRoutes   = require('./routes/newposts')
-    
+    // 
 // configuration ===============================================================
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.localhost);    // connect to our local database
@@ -55,7 +55,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/us", usRoutes);
 app.use("/us/:id/newposts", newpostsRoutes);
 // app.use("/us/:id/newposts/:newpost", newcommentRoutes);
-
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("The vanVlymenList Server Has Started!");
