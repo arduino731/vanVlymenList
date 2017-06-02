@@ -2,3 +2,9 @@ http://bootsnipp.com/snippets/featured/toggle-navbar
 
 if you want to use process.env.DATABASEURL then you must to $ export DATABASEURL=mongodb://vanvlymenlist:vanvlymenlist@ds041556.mlab.com:41556/vanvlymenlist
 in the terminal 
+
+if you want to deploy to heroku web server and make sure its connect to mlab server db
+app.js (url or localhost line 23,24)
+		
+according to developers facebook you will want to redirect callbackURL after login in either way url page after successfully
+config/auth.js
