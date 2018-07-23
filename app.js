@@ -9,7 +9,8 @@ var express     = require("express"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     
-    seedDB      = require("./seeds")
+    seedDB      = require("./seeds"),
+    dotenv      = require('dotenv').config()
     
 //requiring routes
 var commentRoutes    = require("./routes/comments"),
@@ -17,13 +18,12 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index"),
     usRoutes         = require("./routes/us"),
     newpostsRoutes   = require('./routes/newposts')
-    // 
+    // newcommentsRoutes = require('.routes/newcomment')
 // configuration ===============================================================
-var configDB = require('./config/database.js');
-// mongoose.connect(configDB.localhost);    // connect to our local database
-mongoose.connect(configDB.url);          // connect to mlab server db
-// console.log(process.env.DATABASEURL);    // look at the note.txt
-// mongoose.connect(process.env.DATABASEURL);
+
+// mongoose.connect(process.env.LOCALHOST);    // connect to our local database
+mongoose.connect(process.env.URL);          // connect to mlab server db
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -55,6 +55,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/us", usRoutes);
 app.use("/us/:id/newposts", newpostsRoutes);
 // app.use("/us/:id/newposts/:newpost", newcommentRoutes);
+
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("The vanVlymenList Server Has Started!");

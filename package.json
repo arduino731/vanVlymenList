@@ -5,19 +5,20 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node app.js"
+    "start": "node app.js"
   },
   "author": "Brian van Vlymen",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.14.1",
+    "body-parser": "^1.18.3",
     "bower": "^1.7.9",
+    "dotenv": "^6.0.0",
     "ejs": "^2.3.4",
-    "express": "^4.13.3",
-    "express-session": "^1.11.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "method-override": "^2.3.5",
     "mongoose": "^4.1.12",
-    "nodemon": "^1.10.2",
+    "nodemon": "^1.18.3",
     "passport": "^0.3.0",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",

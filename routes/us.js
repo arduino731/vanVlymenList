@@ -30,7 +30,7 @@ router.get("/:id", function(req, res){
         if(err){
             console.log(err)
         } else {
-            // console.log(foundidState);
+            // console.log("found", foundidState);
             res.render("world/us/idState", {state: foundidState});    
         }
     });
@@ -48,8 +48,8 @@ router.post("/:id", middleware.isLoggedIn,function(req, res){
         name:req.body.name,
         name2: req.body.facebook.name
     }
-    console.log("author: authorValue");
-    console.log(authorValue);
+    // console.log("author: authorValue");
+    // console.log(authorValue);
     var newUS = {image: imageValue, price:priceValue, description:desc, city: city, author:authorValue}
     //  Create a new US and save to DB 
     newCity.create(newUS, function(err, newlyCreated){

@@ -10,7 +10,7 @@ router.get("/", function(req, res){
     res.render("home");
 });
 
-// router.get("/us", function(req, res){
+// router.get("/us", function(req, res){ // not need this
 //     res.render("world/us/index");
 // });
 
