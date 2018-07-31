@@ -22,7 +22,7 @@ var commentRoutes    = require("./routes/comments"),
 // configuration ===============================================================
 
 // mongoose.connect(process.env.LOCALHOST);    // connect to our local database
-mongoose.connect(process.env.URL);          // connect to mlab server db
+mongoose.connect(process.env.DATABASEURL);          // connect to mlab server db
 
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -57,6 +57,6 @@ app.use("/us/:id/newposts", newpostsRoutes);
 // app.use("/us/:id/newposts/:newpost", newcommentRoutes);
 
 
-app.listen(process.env.PORT, process.env.IP || 3000, function(){
+app.listen(process.env.PORT || 3000, function(){
    console.log("The vanVlymenList Server Has Started!");
 });
