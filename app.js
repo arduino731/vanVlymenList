@@ -22,7 +22,7 @@ var commentRoutes    = require("./routes/comments"),
 // configuration ===============================================================
 
 // mongoose.connect(process.env.LOCALHOST);    // connect to our local database
-mongoose.connect(process.env.DATABASEURL);          // connect to mlab server db
+mongoose.connect(process.env.MONGOLAB_URL, { useNewUrlParser: true });          // connect to mlab server db
 
 
 app.use(bodyParser.urlencoded({extended: true}));

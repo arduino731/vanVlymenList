@@ -1,7 +1,7 @@
 {
-  "name": "vanVlymensList",
+  "name": "vanvlymenslist",
   "version": "1.0.0",
-  "description": "vanVlymensList",
+  "description": "vanVlymens List meet up and sell",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,7 +17,7 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "method-override": "^2.3.5",
-    "mongoose": "^4.1.12",
+    "mongoose": "^5.1.12",
     "nodemon": "^1.18.3",
     "passport": "^0.3.0",
     "passport-facebook": "^2.1.1",
