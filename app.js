@@ -57,7 +57,7 @@ app.use("/us/:id/newposts", newpostsRoutes);
 // app.use("/us/:id/newposts/:newpost", newcommentRoutes);
 
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 3000, process.env.IP || function(){
    console.log("The vanVlymenList Server Has Started!");
    console.log('listening on', process.env.PORT);
 });
