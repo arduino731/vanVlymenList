@@ -26,7 +26,6 @@ mongoose.connect(process.env.MONGOLAB_URL, { useNewUrlParser: true });          
 
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.set('views', path.join(__dirname, '/views'));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
@@ -58,7 +57,7 @@ app.use("/us/:id/newposts", newpostsRoutes);
 // app.use("/us/:id/newposts/:newpost", newcommentRoutes);
 
 
-app.listen(process.env.PORT || 3000, process.env.IP || function(){
+app.listen(process.env.PORT || 3000, function(){
    console.log("The vanVlymenList Server Has Started!");
    console.log('listening on', process.env.PORT);
 });
