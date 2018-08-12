@@ -33,8 +33,8 @@ module.exports = function(passport) {
         // pull in our app id and secret from our auth.js file
         clientID        : process.env.FBclientID,
         clientSecret    : process.env.FBclientSecret,
-        // callbackURL     : process.env.FBcallbackURLheroku,
-        callbackURL     : process.env.FBcallbackLocalhost,
+        callbackURL     : process.env.FBcallbackURLheroku,
+        // callbackURL     : process.env.FBcallbackLocalhost,
         profileFields   : ['id', 'email', 'displayName', 'picture.type(large)', 'profileUrl']
 
     },
