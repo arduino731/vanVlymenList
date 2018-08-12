@@ -8,14 +8,14 @@ module.exports = {
 		'clientID' 		: 'process.env.FBclientID', // your App ID
 		'clientSecret' 	: 'process.env.FBclientSecret', // your App Secret
         'callbackURL' 	: 'process.env.FBcallbackURLheroku'
-        // 'localhostcallbackURL' 	: 'http://localhost:8080/auth/facebook/callback'
+        // 'callbackURL' 	: 'process.env.FBcallbackLocalhost'
 	},
 	
 	// https://apps.twitter.com/ (Twitter developer)
 	'twitterAuth' : {
-		'consumerKey' 		: 'YeezZW2NraM46NDncerqc7vG9',
-		'consumerSecret' 	: 'epr45QNq0cW2dVLbYkoFeZ9v65zmCydusHeoyYpDF9j1Ktzf1d',
-		'callbackURL' 		: 'https://web-developer-bootstrap-ironheartbj18.c9users.io/auth/twitter/callback'
+		'consumerKey' 		: 'your-secret-clientID-here',
+		'consumerSecret' 	: 'your-client-secret-here',
+		'callbackURL' 		: 'https://vanvlymenlist.herokuapp.com/auth/twitter/callback'
 	},
 
 	'googleAuth' : {

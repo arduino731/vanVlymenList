@@ -9,7 +9,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var User       		= require('../models/user');
 
 // load the auth variables
-var configAuth = require('./auth');
+// var configAuth = require('./auth');
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
@@ -31,9 +31,10 @@ module.exports = function(passport) {
     passport.use(new FacebookStrategy({
 
         // pull in our app id and secret from our auth.js file
-        clientID        : configAuth.facebookAuth.clientID,
-        clientSecret    : configAuth.facebookAuth.clientSecret,
-        callbackURL     : configAuth.facebookAuth.callbackURL,
+        clientID        : process.env.FBclientID,
+        clientSecret    : process.env.FBclientSecret,
+        // callbackURL     : process.env.FBcallbackURLheroku,
+        callbackURL     : process.env.FBcallbackLocalhost,
         profileFields   : ['id', 'email', 'displayName', 'picture.type(large)', 'profileUrl']
 
     },
