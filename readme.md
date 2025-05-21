@@ -1,8 +1,12 @@
 # vanVlymenList
 
 ## Initial Setup
-* Add Landing Page
-* Add vanVlymenList Page that lists all vanVlymenList 
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB (with Mongoose)
+* **Authentication:** Passport.js, express-session, passport-local, passport-facebook
+* **Templating:** EJS
+* **Styling:** Bootstrap 4
+* **Other:** dotenv, method-override, body-parser, nodemon
 
 Each vanVlymenList has:
    * Name
