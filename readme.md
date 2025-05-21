@@ -1,6 +1,6 @@
-#vanVlymenList
+# vanVlymenList
 
-##Initial Setup
+## Initial Setup
 * Add Landing Page
 * Add vanVlymenList Page that lists all vanVlymenList 
 
