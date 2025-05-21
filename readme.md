@@ -1,10 +1,10 @@
-#YelpCamp
+#vanVlymenList
 
 ##Initial Setup
 * Add Landing Page
-* Add Campgrounds Page that lists all campgrounds
+* Add vanVlymenList Page that lists all vanVlymenList 
 
-Each Campground has:
+Each vanVlymenList has:
    * Name
    * Image
 
@@ -12,28 +12,28 @@ Each Campground has:
 * Create our header and footer partials
 * Add in Bootstrap
 
-##Creating New Campgrounds
-* Setup new campground POST route
+##Creating New vanVlymenList
+* Setup new vanVlymenList POST route
 * Add in body-parser
 * Setup route to show form
 * Add basic unstyled form
 
-##Style the campgrounds page
+##Style the vanVlymenList page
 * Add a better header/title
-* Make campgrounds display in a grid
+* Make vanVlymenList display in a grid
 
 ##Style the Navbar and Form
 * Add a navbar to all templates
-* Style the new campground form
+* Style the new vanVlymenList form
 
 ##Add Mongoose
 * Install and configure Mongoose
-* Setup campground model
-* Use campground model inside of our routes
+* Setup vanVlymenList model
+* Use vanVlymenList model inside of our routes
 
 ##Show Page
 * Review the RESTful routes we've seen so far
-* Add description to our campground model
+* Add description to our vanVlymenList model
 * Show db.collection.drop()
 * Add a show route/template
 
@@ -105,9 +105,9 @@ Each Campground has:
 * Add Destroy Route
 * Add Delete button
 
-#Authorization Part 1: Campgrounds
-* User can only edit his/her campgrounds
-* User can only delete his/her campgrounds
+#Authorization Part 1: vanVlymenList
+* User can only edit his/her vanVlymenList
+* User can only delete his/her vanVlymenList
 * Hide/Show edit and delete buttons
 
 #Editing Comments
@@ -115,14 +115,14 @@ Each Campground has:
 * Add Edit button
 * Add Update route
 
-Campground Edit Route: <!--/campgrounds/:id/edit-->
+vanVlymenList Edit Route: <!--/campgrounds/:id/edit-->
 Comment Edit Route:   <!--/campgrounds/:id/comments/:comment_id/edit-->
 
 #Deleting Comments
 * Add Destroy route
 * Add Delete button
 
-Campground Destroy Route: /campgrounds/:id
+vanVlymenList Destroy Route: /campgrounds/:id
 Comment Destroy Route:    /campgrounds/:id/comments/:comment_id
 
 #Authorization Part 2: Comments
