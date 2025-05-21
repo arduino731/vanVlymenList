@@ -8,162 +8,86 @@
 * **Styling:** Bootstrap 4
 * **Other:** dotenv, method-override, body-parser, nodemon
 
-Each vanVlymenList has:
-   * Name
-   * Image
+## Key Dependencies
+```json
+"dependencies": {
+  "body-parser": "^1.18.3",
+  "bower": "^1.7.9",
+  "dotenv": "^6.0.0",
+  "ejs": "^3.1.10",
+  "express": "^4.16.3",
+  "express-session": "^1.15.6",
+  "method-override": "^2.3.5",
+  "mongoose": "^8.14.3",
+  "nodemon": "^3.1.10",
+  "passport": "^0.7.0",
+  "passport-facebook": "^2.1.1",
+  "passport-local": "^1.0.0",
+  "passport-local-mongoose": "^3.1.0"
+}
+```
 
-##Layout and Basic Styling
-* Create our header and footer partials
-* Add in Bootstrap
+# Getting Started
+* Clone the repository:
+  ```bash
+  git clone https://github.com/yourusername/vanVlymenList.git
+  cd vanVlymenList
+  ```
+ # Install dependencies: 
+   ```bash
+  npm install
+  ```
+# Set up environment variables:
+* Copy .env.example to .env and add your MongoDB URI, Facebook App credentials, and session secret.
 
-##Creating New vanVlymenList
-* Setup new vanVlymenList POST route
-* Add in body-parser
-* Setup route to show form
-* Add basic unstyled form
+# (Optional) Seed the database:
+   ```bash
+  node seeds.js
+  ```
+# Start the application:
+```bash
+nodemon app.js
+# or
+node app.js
+```
+# Vist the app
+* Go to http://localhost:3000 in your browser.
 
-##Style the vanVlymenList page
-* Add a better header/title
-* Make vanVlymenList display in a grid
+# Project Structure
+```
+.
+├── models/        # Mongoose models (User, Listing, Comment)
+├── routes/        # Express routes (auth, listings, comments)
+├── views/         # EJS templates
+├── public/        # Static assets (CSS, JS, images)
+├── app.js         # Main Express application
+├── seeds.js       # Optional seed file
+└── .env.example   # Example environment variables
+```
+# RESTful API Overview
+```
+| Route                         | Method | Description                  |
+| ----------------------------- | ------ | ---------------------------- |
+| /listings                     | GET    | View all listings            |
+| /listings/new                 | GET    | Form to create a new listing |
+| /listings                     | POST   | Create a new listing         |
+| /listings/\:id                | GET    | View a specific listing      |
+| /listings/\:id/edit           | GET    | Edit a listing               |
+| /listings/\:id                | PUT    | Update a listing             |
+| /listings/\:id                | DELETE | Delete a listing             |
+| /listings/\:id/comments       | POST   | Add a comment to a listing   |
+| /listings/\:id/comments/\:cid | PUT    | Edit a comment               |
+| /listings/\:id/comments/\:cid | DELETE | Delete a comment             |
 
-##Style the Navbar and Form
-* Add a navbar to all templates
-* Style the new vanVlymenList form
+```
+# License
+MIT License 
 
-##Add Mongoose
-* Install and configure Mongoose
-* Setup vanVlymenList model
-* Use vanVlymenList model inside of our routes
+# Credits
+* Inspired by Craigslist and learning projects such as vanVlymenList
+* Built with Express, MongoDB, Bootstrap, Passport.js
 
-##Show Page
-* Review the RESTful routes we've seen so far
-* Add description to our vanVlymenList model
-* Show db.collection.drop()
-* Add a show route/template
-
-##Refactor Mongoose Code
-* Create a models directory
-* Use module.exports
-* Require everything correctly!
-
-##Add Seeds File
-* Add a seeds.js file
-* Run the seeds file every time the server starts
-
-##Add the Comment model!
-* Make our errors go away!
-* Display comments on campground show page
-
-##Comment New/Create
-* Discuss nested routes
-* Add the comment new and create routes
-* Add the new comment form
-
-##Style Show Page
-* Add sidebar to show page
-* Display comments nicely
-
-##Finish Styling Show Page
-* Add public directory
-* Add custom stylesheet
-
-##Auth Pt. 1 - Add User Model
-* Install all packages needed for auth
-* Define User model 
-
-##Auth Pt. 2 - Register
-* Configure Passport
-* Add register routes
-* Add register template
-
-##Auth Pt. 3 - Login
-* Add login routes
-* Add login template
-
-##Auth Pt. 4 - Logout/Navbar
-* Add logout route
-* Prevent user from adding a comment if not signed in
-* Add links to navbar
-
-##Auth Pt. 5 - Show/Hide Links
-* Show/hide auth links in navbar 
-
-##Refactor The Routes
-* Use Express router to reoragnize all routes
-
-##Users + Comments
-* Associate users and comments
-* Save author's name to a comment automatically
-
-##Users + Campgrounds
-* Prevent an unauthenticated user from creating a campground
-* Save username+id to newly created campground
-
-# Editing Campgrounds
-* Add Method-Override
-* Add Edit Route for Campgrounds
-* Add Link to Edit Page
-* Add Update Route
-
-#Deleting Campgrounds
-* Add Destroy Route
-* Add Delete button
-
-#Authorization Part 1: vanVlymenList
-* User can only edit his/her vanVlymenList
-* User can only delete his/her vanVlymenList
-* Hide/Show edit and delete buttons
-
-#Editing Comments
-* Add Edit route for comments
-* Add Edit button
-* Add Update route
-
-vanVlymenList Edit Route: <!--/campgrounds/:id/edit-->
-Comment Edit Route:   <!--/campgrounds/:id/comments/:comment_id/edit-->
-
-#Deleting Comments
-* Add Destroy route
-* Add Delete button
-
-vanVlymenList Destroy Route: /campgrounds/:id
-Comment Destroy Route:    /campgrounds/:id/comments/:comment_id
-
-#Authorization Part 2: Comments
-* User can only edit his/her comments
-* User can only delete his/her comments
-* Hide/Show edit and delete buttons
-* Refactor Middleware
+## Want to contribute?
+Pull requests and suggestions are welcome!
 
 
-
-
-
-
-* BOOTSTRAP NAV COLLPASE JS
-* Flash Messages
-* Refactor container div to header
-* Show/hide delete and update buttons
-* style login/register forms
-* Random Background Landing Page
-* Refactor middleware
-* change styling in show template - comment delete/update
-* UPDATE/DELETE CAMPGROUND
-
-
-RESTFUL ROUTES
-
-name      url      verb    desc.
-===============================================
-INDEX   /dogs      GET   Display a list of all dogs
-NEW     /dogs/new  GET   Displays form to make a new dog
-CREATE  /dogs      POST  Add new dog to DB
-SHOW    /dogs/:id  GET   Shows info about one dog
-
-INDEX   /campgrounds
-NEW     /campgrounds/new
-CREATE  /campgrounds
-SHOW    /campgrounds/:id
-
-NEW     campgrounds/:id/comments/new    GET
-CREATE  campgrounds/:id/comments      POST
